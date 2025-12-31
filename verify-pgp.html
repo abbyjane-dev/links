@@ -42,13 +42,14 @@
         <main>
           <div class="box">
             <h2>Automatic (Recommended)</h2>
+            <hr />
             <p class="text-justify">
               If you use GnuPG, fetch my key directly via Web Key Directory
-              (WKD) <button class="copywrap" onclick="copyCmd()">Copy</button>
+              (WKD)</p><p><button class="copywrap" onclick="copyCmd()">Copy</button>
             </p>
             <div>
               <pre id="gpgcmd">
-gpg --auto-key-locate clear,wkd --locate-keys abigail@cloverdalelane.com</pre
+gpg --auto-key-locate clear,wkd --locate-keys abbyjane@cloverdalelane.com</pre
               >
             </div>
             <div>This retrieves my key from my domain over HTTPS.</div>
@@ -56,11 +57,13 @@ gpg --auto-key-locate clear,wkd --locate-keys abigail@cloverdalelane.com</pre
           </div>
           <div class="box">
             <h2>Fingerprint</h2>
+            <hr />
             <p class="text-justify">
               Always verify this fingerprint after import:
             </p>
+            <p><button class="copywrap" onclick="copyFing()">Copy</button></p>
             <pre class="fingerprint">
-BED8 CCA8 0155 7974 725B  E8D9 3423 957F 0559 2942
+020C 5CCA EE12 58A5 9706 58F0 E051 68E3 4D7B 3787
 </pre
             >
           </div>
@@ -70,31 +73,28 @@ BED8 CCA8 0155 7974 725B  E8D9 3423 957F 0559 2942
             <hr />
             <pre id="pgpkey">
 -----BEGIN PGP PUBLIC KEY BLOCK-----
-mDMEaQ7DBhYJKwYBBAHaRw8BAQdAe6LQwNk4EHjXA3110MlNdVS9VlLWeuIg+ycf
-tVRIZPy0LUFiYnkgSmFuZSBNb3J0b24gPGFiaWdhaWxAY2xvdmVyZGFsZWxhbmUu
-Y29tPoiZBBMWCgBBFiEEvtjMqAFVeXRyW+jZNCOVfwVZKUIFAmkOwwYCGwMFCQWk
-XJoFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQNCOVfwVZKULYjgD+Onbh
-9Dr8ihuK4By8q3TwJ50SL6scuACvQzgrzr+nTkUBAIlGvyaYYAMwxGHdGy1ciaRE
-YzH/u1jpXtiUHg1Aj30MuDgEaQ7DBhIKKwYBBAGXVQEFAQEHQMmXrMqFLWtxGDZn
-iG6OeWPQaVxCU3fVzGiVQ8Z4UidVAwEIB4h+BBgWCgAmFiEEvtjMqAFVeXRyW+jZ
-NCOVfwVZKUIFAmkOwwYCGwwFCQWkXJoACgkQNCOVfwVZKUIgVAEA1//0NDyZ7MjY
-Cn1dUoZ00W7WZfEZJbU6mBTfzJOUhxcA/17CD6hpetLkDCxC9ONZ0zT1R3eEwWjr
-zqAk5j6G5esB
-=IUzw
+
+xjMEaVR1uRYJKwYBBAHaRw8BAQdAVP3npaVmug4PabJWtd2lDZHdo/qDOac8DaNL
+naCMyvnNLkFiYnkgSmFuZSBNb3J0b24gPGFiYnlqYW5lQGNsb3ZlcmRhbGVsYW5l
+LmNvbT7CjwQTFggANxYhBAIMXMruElillwZY8OBRaONNezeHBQJpVHW5BQkFo5qA
+AhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQ4FFo4017N4cH5gEAgJaP9ZHlvSPbuIc0
+y62JUi0RpQY/yvDfdLT3Cnf/l3QA/1Sube0QU0M/9Lu385qVXEdCYZt8HwOz55m6
+05d3PrYOzjgEaVR1uhIKKwYBBAGXVQEFAQEHQBncGUY1cdSVo+N8oJpahRWtODeU
+1rj82WiNkqnTcB5LAwEIB8J+BBgWCAAmFiEEAgxcyu4SWKWXBljw4FFo4017N4cF
+AmlUdboFCQWjmoACGwwACgkQ4FFo4017N4dlAwEAw5qcTHneNyhmWM9gftrJv7PI
+93bwzx570merChhaNEgA/24QxjmLE4ZLr0fjD1yIWhk8NmR0mT8cjzVvPf+Wdl4E
+=1GDi
 -----END PGP PUBLIC KEY BLOCK-----
 </pre
             >
           </div>
           <div class="box">
             <h2>Direct download (optional)</h2>
-            <p>You can also download my key directly:</p>
-            <pre>
-https://cloverdalelane.com/.well-known/openpgpkey/hu/f86kbuefhgbza7z9g6s179w45dyi1jay
-</pre
-            >
+            <hr />
+            <p><a href="https://cloverdalelane.com/.well-known/openpgpkey/hu/1aeb2bb18610a5510792ff458f7a4fa036815424" target="_blank" rel="me noopener">You can also download my key directly</a>.</p>
             <p>Import with:</p>
             <pre>
-gpg --import &lt;filename&gt;
+gpg --import 1aeb2bb18610a5510792ff458f7a4fa036815424
 </pre
             >
           </div>
@@ -205,6 +205,12 @@ gpg --import &lt;filename&gt;
           alert("GPG command copied to clipboard.");
         });
       }
+      function copyFing() {
+        const text = document.getElementById("fingerprint").innerText;
+        navigator.clipboard.writeText(text).then(() => {
+          alert("Fingerprintcopied to clipboard.");        
+      });
+    }
     </script>
   </body>
 </html>
