@@ -62,9 +62,8 @@ gpg --auto-key-locate clear,wkd --locate-keys abbyjane@cloverdalelane.com</pre
               Always verify this fingerprint after import:
             </p>
             <p><button class="copywrap" onclick="copyFing()">Copy</button></p>
-            <pre class="fingerprint">
-020C 5CCA EE12 58A5 9706 58F0 E051 68E3 4D7B 3787
-</pre
+            <pre id="fingerprint">
+020C 5CCA EE12 58A5 9706 58F0 E051 68E3 4D7B 3787</pre
             >
           </div>
           <div class="box">
@@ -208,7 +207,7 @@ gpg --import 1aeb2bb18610a5510792ff458f7a4fa036815424
       function copyFing() {
         const text = document.getElementById("fingerprint").innerText;
         navigator.clipboard.writeText(text).then(() => {
-          alert("Fingerprintcopied to clipboard.");        
+          alert("Fingerprint copied to clipboard.");        
       });
     }
     </script>
